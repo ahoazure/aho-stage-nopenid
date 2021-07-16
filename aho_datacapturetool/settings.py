@@ -155,11 +155,11 @@ MEDIA_LOCATION='media' #This works well as the storage location
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
-STATIC_LOCATION='static' #This works well as the static location
-STATICFILES_STORAGE  = 'aho_datacapturetool.azurestorage.AzureStaticStorage'
-STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+# STATIC_LOCATION='static' #This works well as the static location
+# STATICFILES_STORAGE  = 'aho_datacapturetool.azurestorage.AzureStaticStorage'
+# STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 
-# STATIC_URL = '/static/' # Localhost access to static files (CSS, JavaScript,Images)
+STATIC_URL = '/static/' # Localhost access to static files (CSS, JavaScript,Images)
 
 # custom user authentication and Password validation settings
 AUTH_USER_MODEL = 'authentication.CustomUser'
