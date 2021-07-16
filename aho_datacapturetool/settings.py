@@ -1,8 +1,8 @@
 """
 Configuration settings for the iAHO data capture tool (DCT) developed for AFRO.
 """
-from django.utils.translation import gettext_lazy as _
 from . azurestorage import AzureMediaStorage,AzureStaticStorage
+from django.utils.translation import gettext_lazy as _
 import os
 import dotenv
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -155,11 +155,9 @@ MEDIA_LOCATION='media' #This works well as the storage location
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
-# STATIC_LOCATION='static' #This works well as the static location
-# STATICFILES_STORAGE  = 'aho_datacapturetool.azurestorage.AzureStaticStorage'
-# STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-
-STATIC_URL = '/static/' # Localhost access to static files (CSS, JavaScript,Images)
+STATIC_LOCATION='static' #This works well as the static location
+STATICFILES_STORAGE  = 'aho_datacapturetool.azurestorage.AzureStaticStorage'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 
 # custom user authentication and Password validation settings
 AUTH_USER_MODEL = 'authentication.CustomUser'
@@ -180,6 +178,25 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# LOCALE_PATHS is for admin interface language translations (en,fr and pt)
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), #
+)
+
+# Settings for serving and uploading media into Azure Blob storage container
+AZURE_ACCOUNT_NAME = os.environ['AZURE_ACCOUNT']
+AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
+
+#Configurations for serving static assets (CSS, JavaScript, Images)
+STATIC_LOCATION='static' #This works well as the static location
+STATICFILES_STORAGE  = 'aho_datacapturetool.azurestorage.AzureStaticStorage'
+STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+
+# Configurations for serving and uploading files into Azure Blob storage
+DEFAULT_FILE_STORAGE = 'aho_datacapturetool.azurestorage.AzureMediaStorage'
+AZURE_BLOB_MAX_MEMORY_SIZE = os.environ['BLOB_MAX_MEMORY_SIZE']
+
+MEDIA_LOCATION='media' #This works well as the storage location
+MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
 
 # Internationalization
 LANGUAGE_CODE ='en'
@@ -207,11 +224,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
-
-# Static files (CSS, JavaScript, Images)
-# STATIC_URL = '/static/'
-LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale/'), # for UI language translations
-)
 
 #display the AHO logo on the login screen and admin page
 ADMIN_LOGO = 'dashboard_logo.png'
