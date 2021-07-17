@@ -18,7 +18,6 @@
 		<link rel="stylesheet" type="text/css" href="{% static "admin/css/forms.css" %}">
 	<body>
 		<div class="container-fluid" id="wrapper">
-		<p class = body_title> {% trans "Data Capture Tool" %}</p>
 			<div class="row">
 				<div class="col-lg-4 col-lg-offset-4" id="content">
 					<div class="row t10">
@@ -49,7 +48,6 @@
 													required="" placeholder="myemail@who.int">
 												</td>
                     </tr>
-
 										<tr>
                         <td>
 													<label for="id_password" class="labels">
@@ -80,16 +78,16 @@
 									{% endfor %}
 							</select>
 						</form>
-
+						<br>
 						<div id="password-reset-link">
 								<a href="{% url 'password_reset' %}">
-									{% trans "Forgot password? Going Passwordless Soon!" %}</a>
+									{% trans "Forgot password? DCT going Passwordless Soon!" %}</a>
 						</div>
+
 						</div>
 					</div>
 
 				</div>
-
 			</div>
 			<footer>
 				<div class="row pad">
