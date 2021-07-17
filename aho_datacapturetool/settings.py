@@ -1,10 +1,11 @@
 """
 Configuration settings for the iAHO data capture tool (DCT) developed for AFRO.
 """
-from . azurestorage import AzureMediaStorage,AzureStaticStorage
+# from . azurestorage import AzureMediaStorage,AzureStaticStorage
 from django.utils.translation import gettext_lazy as _
 import os
 import dotenv
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
