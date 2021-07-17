@@ -1,5 +1,5 @@
 from .settings import *
-DEBUG = True # Will be moved to external variables in Phase 2
+DEBUG = False # Will be moved to external variables in Phase 2
 # Configure production domain names
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net','*',
     'af-aho-datacapturetool-stage.azurewebsites.net',
@@ -19,7 +19,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
 
 """
 Use secure cookies for the session and crossite protection. An attacker could

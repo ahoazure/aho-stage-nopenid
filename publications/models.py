@@ -138,9 +138,9 @@ class StgKnowledgeProduct(TranslatableModel):
             help_text=_("This marks year of publication"))
     )  # End of translatable fields
     code = models.CharField(unique=True, blank=True,null=False,max_length=45)
-    internal_url = models.FileField (_('File'),upload_to='media/files/',
+    internal_url = models.FileField (_('File'),upload_to='production/files/',
         blank=True,)
-    cover_image = models.ImageField(_('Cover Picture'),upload_to='media/images/',
+    cover_image = models.ImageField(_('Cover Picture'),upload_to='production/images/',
         blank=True,) #for thumbnail..requires pillow
     external_url = models.CharField(blank=True, null=True, max_length=2083)
     location = models.ForeignKey(StgLocation, models.PROTECT, blank=False,
