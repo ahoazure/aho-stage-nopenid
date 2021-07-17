@@ -392,8 +392,9 @@ class IndicatorFactAdmin(ExportActionModelAdmin,OverideExport):
     def get_import_resource_class(self):
         return IndicatorFactsResourceImport
 
-    def date_created (self, obj):
-        return obj.timefield.strftime("%d-%b-%Y")
+    #Format date created to disply only the day, month and year
+    def date_created (obj):
+        return obj.date_created.strftime("%d-%b-%Y")
     date_created.admin_order_field = 'date_created'
     date_created.short_description = 'Date Created'
 
