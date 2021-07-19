@@ -32,7 +32,7 @@ class CustomUser(AbstractUser):
     date_lastupdated = models.DateTimeField(blank=True, null=True, auto_now=True,
         verbose_name = _('Date Modified'))
 
-    REQUIRED_FIELDS = ['location', 'username']
+    REQUIRED_FIELDS = ['username']
     USERNAME_FIELD = 'email' # Replaced using username as unique identifier
 
     class Meta:
